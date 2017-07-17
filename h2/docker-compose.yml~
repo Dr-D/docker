@@ -1,0 +1,11 @@
+version: '2'
+services:
+  h2:
+    image: drd/h2:1
+    volumes:
+    - db:/db
+    ports:
+    - 8085:8082
+
+volumes:
+  db:
