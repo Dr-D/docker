@@ -1,0 +1,8 @@
+FROM jdk:8u152
+
+RUN apt-get update && \
+apt-get install wget && \
+wget http://mirror.vorboss.net/apache/tomcat/tomcat-8/v8.5.24/bin/apache-tomcat-8.5.24.tar.gz && \
+tar -xzf apache-tomcat-8.5.24.tar.gz
+
+ENTRYPOINT ["/bin/bash", "apache-tomcat-8.5.24/bin/catalina.sh", "run"]
