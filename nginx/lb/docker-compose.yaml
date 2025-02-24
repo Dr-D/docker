@@ -1,0 +1,29 @@
+version: '2'
+services:
+  nginx1:
+    image: nginx
+    networks:
+      - nginx-test
+    ports: []
+#      - 8080:80
+    volumes:
+      - ./test-page-1:/usr/share/nginx/html
+  nginx2:
+    image: nginx
+    networks:
+      - nginx-test
+    ports: []
+ #     - 8081:80
+    volumes:
+      - ./test-page-2:/usr/share/nginx/html
+  lb:
+    image: nginx
+    networks:
+      - nginx-test
+    ports:
+      - 9080:80
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf
+networks:
+  nginx-test:
+    driver: bridge
